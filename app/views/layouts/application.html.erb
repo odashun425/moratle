@@ -23,21 +23,24 @@
 
   <body>
     <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">Moratle</a></h1>
-        <div class="user_nav grid-6">
-          <a class="post" href="/moratle/univercitylist">大学一覧</a>
+      <div class="heading">
+        <h1 class="logo-link"><a href="/">Moratle</a></h1>
+
+        <div class="nav-bar">
+         <ul class="nav">
+           <li class="nav-1">
+            <a class="uni-list" href="/moratle/univercitylist">大学一覧</a>
+           </li>
+           <li>
+           <a class="gyokai-list" href="/moratle/gyokailist">業界一覧</a>
+           </li>
+           <li>
+             <a class="article" href="/moratle/articles">コラム/記事</a>
+           </li>
+           <li><a class="rejist" href="/moratle/new">新規登録</a>
+           </li>
+         </ul>
         </div>
-        <div class="user_nav grid-6">
-          <a class="post" href="/moratle/gyokailist">業界一覧</a>
-        </div>
-        <div class="user_nav grid-6">
-          <a class="post" href="/moratle/articles">コラム/記事</a>
-        </div>
-        <div class="user_nav grid-6">
-          <a class="post" href="/moratle/new">新規登録</a>
-        </div>
-      </div>
     </header>
 
     <%= yield %>
