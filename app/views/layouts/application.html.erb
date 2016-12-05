@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Moratle</title>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true  %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <script type="text/javascript">
@@ -29,7 +29,7 @@
         <div class="nav-bar">
          <ul class="nav">
            <li class="nav-1">
-            <a class="uni-list" href="/moratle/univercitylist">大学一覧</a>
+            <a class="uni-list" href="/campuses">大学一覧</a>
            </li>
            <li>
            <a class="gyokai-list" href="/moratle/gyokailist">業界一覧</a>
@@ -37,8 +37,14 @@
            <li>
              <a class="article" href="/moratle/articles">コラム/記事</a>
            </li>
-           <li><a class="rejist" href="/moratle/new">新規登録</a>
-           </li>
+          <% if user_signed_in? %>
+           <%= link_to "マイページ", '/mypage' %>
+           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <% else %>
+           <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+           <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+          <% end %>
+        </div>
          </ul>
         </div>
     </header>
