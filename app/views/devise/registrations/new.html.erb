@@ -1,28 +1,53 @@
-<h2>Sign up</h2>
+<h2>新規登録画面</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :ニックネーム %> <em>(10 字以内)</em><br />
+    <%= f.text_field :nickname, placeholder: "ニックネーム", autofocus: true, maxlength: "10" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+
+  <div class="field">
+    <%= f.label :birth %><br />
+    <%= f.date_select :birth, autofocus: true, start_year:1980 %>
+  </div>
+
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :所属大学名 %><br />
+    <%= f.text_field :university, placeholder: "大学名", autofocus: true %>
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :志望する業界 %><br />
+    <%= f.select :sibougyokai, options_for_select(["メーカー", "商社（総合・専門）", "銀行・証券・保険・金融", "情報（広告・通信・マスコミ", "百貨店・流通・小売", "IT・ソフトウェア・情報処理"]), {prompt: t('placeholder.選択してください')} %>
+  </div>
+
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
 
