@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205122857) do
+ActiveRecord::Schema.define(version: 20161210052216) do
 
-  create_table "campuses", force: :cascade do |t|
+  create_table "campus", force: :cascade do |t|
     t.string   "classname",   limit: 255
     t.text     "classdetail", limit: 65535
-    t.string   "class",       limit: 255
     t.string   "teacher",     limit: 255
     t.string   "university",  limit: 255
     t.string   "department",  limit: 255
@@ -24,6 +23,7 @@ ActiveRecord::Schema.define(version: 20161205122857) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "prefectures", limit: 255
+    t.integer  "user_id",     limit: 4
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20161205122857) do
     t.integer  "report",        limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id",       limit: 4
   end
 
   create_table "users", force: :cascade do |t|

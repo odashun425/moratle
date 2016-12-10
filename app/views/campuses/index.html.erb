@@ -6,11 +6,11 @@
 
   <div class="main-contents1" >
   <h3>大学名から探す</h3>
-   <% @campuses.each do |campus| %>
-    <div class="content_uni-search">
-     <%= simple_format(campus.university) %>
-    </div>
-   <% end %>
+     <% @campuses.each do |campus| %>
+   <div class="content_uni-search">
+       <%= link_to "#{campus.university}", "campuses/department", method: :get %>
+   </div>
+     <% end %>
   </div>
 
   <div class="main-contents2" >

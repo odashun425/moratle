@@ -1,0 +1,26 @@
+<div class="contents clearfix">
+ <div class="main-contents">
+  <div class="discription">
+   <h3>大学一覧</h3>
+  </div>
+
+  <%= form_tag('/campuses', method: :get) do %>
+    <input class="search__query" name="keyword" placeholder="大学名で検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+  <% end %>
+  <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+  </form>
+
+  <div class="main-contents1" >
+  <h3>明治大学‐経営学部の授業一覧</h3>
+     <% @campuses.each do |campus| %>
+    <div class="content_uni-search">
+       <%= link_to "#{campus.department}", "campuses/classname", method: :get %>
+    </div>
+   <% end %>
+  </div>
+ </div>
+
+ <div class="side-contents">
+  <h1>Side-contents</h1>
+ </div>
+</div>
